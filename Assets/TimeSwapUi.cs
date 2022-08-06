@@ -43,7 +43,7 @@ public class TimeSwapUi : MonoBehaviour
     }
     public void TimeChange()
     {
-        if (timeCurrent != time)
+        if (timeCurrent == time)
             return;
         translateTime.gameObject.SetActive(true);
         translateTime.position = GameObject.Find("Player").transform.position;
@@ -56,17 +56,17 @@ public class TimeSwapUi : MonoBehaviour
         presentCollider.SetActive(time == TimeCurrent.Present);
 
         if (timeCurrent == TimeCurrent.Future)
-            futureSprites.transform.position = new Vector3(0f, 0f, 1f);
-        if (timeCurrent == TimeCurrent.Present)
-            presentSprites.transform.position = new Vector3(0f, 0f, 1f);
-        if (timeCurrent == TimeCurrent.Past)
-            pastSprites.transform.position = new Vector3(0f, 0f, 1f);
-        if (time == TimeCurrent.Future)
             futureSprites.transform.position = new Vector3(0f, 0f, 0f);
-        if (time == TimeCurrent.Present)
+        if (timeCurrent == TimeCurrent.Present)
             presentSprites.transform.position = new Vector3(0f, 0f, 0f);
-        if (time == TimeCurrent.Past)
+        if (timeCurrent == TimeCurrent.Past)
             pastSprites.transform.position = new Vector3(0f, 0f, 0f);
+        if (time == TimeCurrent.Future)
+            futureSprites.transform.position = new Vector3(0f, 0f, 1f);
+        if (time == TimeCurrent.Present)
+            presentSprites.transform.position = new Vector3(0f, 0f, 1f);
+        if (time == TimeCurrent.Past)
+            pastSprites.transform.position = new Vector3(0f, 0f, 1f);
         if (timeCurrent == TimeCurrent.Past)
         {
             for (int i = 0; i < pastSprites.childCount; i++)
@@ -117,6 +117,7 @@ public class TimeSwapUi : MonoBehaviour
                 pastSprites.transform.position = Vector3.zero;
                 futureSprites.transform.position = Vector3.zero;
                 timeCurrent = time;
+                timeAddTimeChange = 0f;
             }
         }
         presentChip.SetActive(presentChipHave);
