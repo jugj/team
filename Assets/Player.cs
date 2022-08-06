@@ -8,11 +8,28 @@ public class Player : MonoBehaviour
     {
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }
-
-    // Update is called once per frame
-    void FixedUpdate()
+    float horizontal = 0f;
+    float vertical = 0f;
+    void Update()
     {
-        Debug.Log(Input.GetAxis("Horizontal").ToString());
-        GetComponent<Rigidbody2D>().AddForce(new Vector3(Input.GetAxis("Horizontal"),Input.GetAxis("Vertical"), 0f) * 3f, ForceMode2D.Impulse);
+        if(Input.GetKey(KeyCode.W) | Input.GetKey(KeyCode.UpArrow))
+        {
+            vertical += 1f;
+        }
+        if (Input.GetKey(KeyCode.S) | Input.GetKey(KeyCode.DownArrow))
+        {
+            vertical -= 1f;
+        }
+        if (Input.GetKey(KeyCode.D) | Input.GetKey(KeyCode.RightArrow))
+        {
+            horizontal += 1f;
+        }
+        if (Input.GetKey(KeyCode.A) | Input.GetKey(KeyCode.LeftArrow))
+        {
+            horizontal -= 1f;
+        }
+        GetComponent<Rigidbody2D>().velocity = new Vector2(horizontal,vertical) * 3f;
+        vertical = 0f;
+        horizontal = 0f;
     }
 }
