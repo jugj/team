@@ -12,12 +12,17 @@ public class TimeSwapUi : MonoBehaviour
     public GameObject presentChipUI;
     public GameObject pastChipUI;
     public GameObject futureChipUI;
+    public bool futureChipHave;
+    public GameObject presentChipUI;
+    public GameObject pastChipUI;
+    public GameObject futureChipUI;
     public GameObject presentChip;
     public GameObject pastChip;
     public GameObject futureChip;
     public GameObject ClockUI;
     //private Vector2 endMouseDownDirection;
     private bool isRotation;
+    public bool isAktive;
     public bool isAktive;
     void Start()
     {
