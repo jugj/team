@@ -118,6 +118,7 @@ public class TimeSwapUi : MonoBehaviour
                 futureSprites.transform.position = Vector3.zero;
                 timeCurrent = time;
                 timeAddTimeChange = 0f;
+                translateTime.gameObject.SetActive(false);
             }
         }
         presentChip.SetActive(presentChipHave);
