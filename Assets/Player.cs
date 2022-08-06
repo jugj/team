@@ -28,6 +28,8 @@ public class Player : MonoBehaviour
         {
             horizontal -= 1f;
         }
+        GetComponent<Animator>().SetFloat("Ver", vertical);
+        GetComponent<Animator>().SetFloat("Hor", horizontal);
         GetComponent<Rigidbody2D>().velocity = new Vector2(horizontal,vertical) * 3f;
         vertical = 0f;
         horizontal = 0f;
