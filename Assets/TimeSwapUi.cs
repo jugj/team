@@ -15,6 +15,7 @@ public class TimeSwapUi : MonoBehaviour
     public GameObject presentChip;
     public GameObject pastChip;
     public GameObject futureChip;
+    public GameObject ClockUI;
     //private Vector2 endMouseDownDirection;
     private bool isRotation;
     public bool isAktive;
@@ -26,9 +27,9 @@ public class TimeSwapUi : MonoBehaviour
     {
         presentChip.SetActive(presentChipHave);
         pastChip.SetActive(pastChipHave);
-        presentChipUI.SetActive(presentChipHave);
-        pastChipUI.SetActive(pastChipHave);
+        futureChip.SetActive(futureChipHave);
         transform.Find("Sprite").gameObject.SetActive(isAktive);
+        ClockUI.SetActive(isAktive);
 
         directionIndicator.up = Camera.main.ScreenToWorldPoint(Input.mousePosition) - directionIndicator.transform.position;
         if (Input.GetMouseButtonDown(0) && Vector2.Distance(Camera.main.ScreenToWorldPoint(Input.mousePosition), transform.position) < 2.2f)

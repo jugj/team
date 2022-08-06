@@ -37,11 +37,21 @@ public class EventHandler : MonoBehaviour
     }
     public void GetItem(int item)
     {
-        Debug.Log("Fa " + item.ToString());
         if (item == 1)
         {
-            TimeSwaper.SetActive(true);
-            searching.SetActive(false);
+            TimeSwaper.GetComponent<TimeSwapUi>().isAktive = true;
+        }
+        if (item == 2)
+        {
+            TimeSwaper.GetComponent<TimeSwapUi>().pastChipHave = true;
+        }
+        if (item == 3)
+        {
+            TimeSwaper.GetComponent<TimeSwapUi>().presentChipHave = true;
+        }
+        if (item == 4)
+        {
+            TimeSwaper.GetComponent<TimeSwapUi>().futureChipHave = true;
         }
     }
     void Start()

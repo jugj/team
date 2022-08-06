@@ -22,6 +22,7 @@ public class InterAction : MonoBehaviour
         {
             playerIsTrigger = true;
             FindObjectOfType<EventHandler>().currentEvent = action;
+            GameObject.Find("SearchingButton").SetActive(true);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
