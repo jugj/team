@@ -15,6 +15,7 @@ public class EventHandler : MonoBehaviour
     public ActionEvent currentEvent;
 
     public GameObject TimeSwaper;
+    public GameObject searching;
     public void Interact()
     {
         if (currentEvent != ActionEvent.None)
@@ -41,7 +42,8 @@ public class EventHandler : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.KeypadEnter))
         {
-
+            Interact();
         }
+        searching.SetActive(currentEvent != ActionEvent.None);
     }
 }
