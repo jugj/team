@@ -37,11 +37,11 @@ public class TimeSwapUi : MonoBehaviour
             {
                 transform.localEulerAngles = new Vector3(0f, 0f, 0f);
             }
-            if (transform.rotation.eulerAngles.z < -45f && transform.rotation.eulerAngles.z > -179.9f)
+            else if (transform.rotation.eulerAngles.z < -45f && transform.rotation.eulerAngles.z > -179.9f)
             {
                 transform.localEulerAngles = new Vector3(0f, 0f, -90f);
             }
-            if (transform.rotation.eulerAngles.z > 45f && transform.rotation.eulerAngles.z < 180.0f)
+            else if (transform.rotation.eulerAngles.z > 45f && transform.rotation.eulerAngles.z < 180.0f)
             {
                 transform.localEulerAngles = new Vector3(0f, 0f, 90f);
             }
