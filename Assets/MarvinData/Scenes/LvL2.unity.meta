@@ -1,7 +1,17 @@
+<<<<<<<< HEAD:Assets/MarvinData/Scenes/TitleScreen.unity.meta
 fileFormatVersion: 2
-guid: 6ef74a02e7ecdb543a16a80d7923f7e3
+guid: c364faab610be83439bbeb8f3f0a07b4
 DefaultImporter:
   externalObjects: {}
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+========
+fileFormatVersion: 2
+guid: 2cda990e2423bbf4892e6590ba056729
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+>>>>>>>> 7b2aed6 (Änderungen von Simon um 20:34:04):Assets/MarvinData/Scenes/LvL1.unity.meta
