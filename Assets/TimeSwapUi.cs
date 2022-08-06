@@ -8,16 +8,28 @@ public class TimeSwapUi : MonoBehaviour
     public Transform directionIndicator;
     public bool pastChipHave;
     public bool presentChipHave;
+    public bool futureChipHave;
+    public GameObject presentChipUI;
+    public GameObject pastChipUI;
+    public GameObject futureChipUI;
     public GameObject presentChip;
     public GameObject pastChip;
+    public GameObject futureChip;
     //private Vector2 endMouseDownDirection;
     private bool isRotation;
+    public bool isAktive;
     void Start()
     {
         
     }
     void Update()
     {
+        presentChip.SetActive(presentChipHave);
+        pastChip.SetActive(pastChipHave);
+        presentChipUI.SetActive(presentChipHave);
+        pastChipUI.SetActive(pastChipHave);
+        transform.Find("Sprite").gameObject.SetActive(isAktive);
+
         directionIndicator.up = Camera.main.ScreenToWorldPoint(Input.mousePosition) - directionIndicator.transform.position;
         if (Input.GetMouseButtonDown(0) && Vector2.Distance(Camera.main.ScreenToWorldPoint(Input.mousePosition), transform.position) < 2.2f)
         {
@@ -25,15 +37,10 @@ public class TimeSwapUi : MonoBehaviour
         }
         if (Input.GetMouseButton(0) && isRotation)
         {
-            if (startMouseDownDirection == 16664f)
-            {
-                startMouseDownDirection = directionIndicator.localEulerAngles.z;
-            }
             transform.rotation = Quaternion.Euler(0f, 0f, directionIndicator.rotation.eulerAngles.z - startMouseDownDirection);
         }
         else
         {
-            startMouseDownDirection = directionIndicator.localEulerAngles.z;
         }
         if (Input.GetMouseButtonUp(0) && isRotation)
         {
@@ -41,23 +48,40 @@ public class TimeSwapUi : MonoBehaviour
             {
                 if (presentChipHave)
                 {
-                    if (transform.rotation.eulerAngles.z <= 90f && transform.rotation.eulerAngles.z >= -90f)
+                    if (futureChipHave)
                     {
-                        transform.localEulerAngles = new Vector3(0f, 0f, 0f);
+                        if ((transform.localEulerAngles.z > 0f && transform.localEulerAngles.z <= 90f) || transform.localEulerAngles.z > 270f)
+                        {
+                            transform.localEulerAngles = new Vector3(0f, 0f, 0f);
+                        }
+                        if (transform.localEulerAngles.z > 120f && transform.localEulerAngles.z <= 240f)
+                        {
+                            transform.localEulerAngles = new Vector3(0f, 0f, -90f);
+                        }
+                        if (transform.localEulerAngles.z > 240f)
+                        {
+                            transform.localEulerAngles = new Vector3(0f, 0f, 0f);
+                        }
                     }
-                    if (transform.rotation.eulerAngles.z > 90f || transform.rotation.eulerAngles.z < -90f)
+                    else
                     {
-                        transform.localEulerAngles = new Vector3(0f, 0f, 0f);
+                        if (transform.localEulerAngles.z > 0f && transform.localEulerAngles.z <= 180f)
+                        {
+                            transform.localEulerAngles = new Vector3(0f, 0f, 90f);
+                        }
+                        if (transform.localEulerAngles.z > 180f)
+                        {
+                            transform.localEulerAngles = new Vector3(0f, 0f, -90f);
+                        }
                     }
                 }
                 else
                 {
-
+                    if (transform.localEulerAngles.z > 180f)
+                    {
+                        transform.localEulerAngles = new Vector3(0f, 0f, -90f);
+                    }
                 }
-            }
-            if (transform.rotation.eulerAngles.z <= 45f && transform.rotation.eulerAngles.z >= -45f)
-            {
-                transform.localEulerAngles = new Vector3(0f, 0f, 0f);
             }
             isRotation = false;
         }
