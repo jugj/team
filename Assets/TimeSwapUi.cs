@@ -6,6 +6,10 @@ public class TimeSwapUi : MonoBehaviour
 {
     private float startMouseDownDirection;
     public Transform directionIndicator;
+    public bool pastChipHave;
+    public bool presentChipHave;
+    public GameObject presentChip;
+    public GameObject pastChip;
     //private Vector2 endMouseDownDirection;
     private bool isRotation;
     void Start()
@@ -33,17 +37,27 @@ public class TimeSwapUi : MonoBehaviour
         }
         if (Input.GetMouseButtonUp(0) && isRotation)
         {
+            if (pastChipHave)
+            {
+                if (presentChipHave)
+                {
+                    if (transform.rotation.eulerAngles.z <= 90f && transform.rotation.eulerAngles.z >= -90f)
+                    {
+                        transform.localEulerAngles = new Vector3(0f, 0f, 0f);
+                    }
+                    if (transform.rotation.eulerAngles.z > 90f || transform.rotation.eulerAngles.z < -90f)
+                    {
+                        transform.localEulerAngles = new Vector3(0f, 0f, 0f);
+                    }
+                }
+                else
+                {
+
+                }
+            }
             if (transform.rotation.eulerAngles.z <= 45f && transform.rotation.eulerAngles.z >= -45f)
             {
                 transform.localEulerAngles = new Vector3(0f, 0f, 0f);
-            }
-            else if (transform.rotation.eulerAngles.z < -45f && transform.rotation.eulerAngles.z > -179.9f)
-            {
-                transform.localEulerAngles = new Vector3(0f, 0f, -90f);
-            }
-            else if (transform.rotation.eulerAngles.z > 45f && transform.rotation.eulerAngles.z < 180.0f)
-            {
-                transform.localEulerAngles = new Vector3(0f, 0f, 90f);
             }
             isRotation = false;
         }
