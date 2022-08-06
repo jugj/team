@@ -5,13 +5,13 @@ public enum ActionEvent
 {
     None,
     FindTimeSwaper,
-    SearchHay,
-    ActionKey
+    ChipPast,
+    ChipPresent
 }
 public class InterAction : MonoBehaviour
 {
     [SerializeField] private ActionEvent action;
-    private bool playerIsTrigger;
+    [HideInInspector] public bool playerIsTrigger;
     private void Update()
     {
 

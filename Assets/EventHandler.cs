@@ -20,18 +20,28 @@ public class EventHandler : MonoBehaviour
     {
         if (currentEvent != ActionEvent.None)
         {
+            for (int i = 0; i < FindObjectsOfType<InterAction>().Length; i++)
+            {
+                if (FindObjectsOfType<InterAction>()[i].playerIsTrigger)
+                {
+                    Destroy(FindObjectsOfType<InterAction>()[i]);
+                    break;
+                }
+            }
             if (items[(int)currentEvent] != Item.None)
             {
                 GetItem((int)items[(int)currentEvent]);
-                items.RemoveAt((int)currentEvent);
             }
+            currentEvent = ActionEvent.None;
         }
     }
     public void GetItem(int item)
     {
+        Debug.Log("Fa " + item.ToString());
         if (item == 1)
         {
             TimeSwaper.SetActive(true);
+            searching.SetActive(false);
         }
     }
     void Start()
