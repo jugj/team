@@ -14,13 +14,7 @@ public class InterAction : MonoBehaviour
     private bool playerIsTrigger;
     private void Update()
     {
-        if (playerIsTrigger)
-        {
-            if (Input.GetKeyDown(KeyCode.KeypadEnter))
-            {
 
-            }
-        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -28,6 +22,7 @@ public class InterAction : MonoBehaviour
         {
             playerIsTrigger = true;
             FindObjectOfType<EventHandler>().currentEvent = action;
+            GameObject.Find("SearchingButton").SetActive(true);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -36,6 +31,7 @@ public class InterAction : MonoBehaviour
         {
             playerIsTrigger = false;
             FindObjectOfType<EventHandler>().currentEvent = ActionEvent.None;
+            GameObject.Find("SearchingButton").SetActive(false);
         }
     }
     

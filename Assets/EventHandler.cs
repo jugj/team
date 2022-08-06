@@ -11,19 +11,26 @@ public enum Item
 }
 public class EventHandler : MonoBehaviour
 {
-    public List<Animator> actionsAnimations;
     public List<Item> items;
     public ActionEvent currentEvent;
+
+    public GameObject TimeSwaper;
     public void Interact()
     {
         if (currentEvent != ActionEvent.None)
-           actionsAnimations[(int)currentEvent].SetBool("Happend", true);
+        {
+            if (items[(int)currentEvent] != Item.None)
+            {
+                GetItem((int)items[(int)currentEvent]);
+                items.RemoveAt((int)currentEvent);
+            }
+        }
     }
     public void GetItem(int item)
     {
         if (item == 1)
         {
-
+            TimeSwaper.SetActive(true);
         }
     }
     void Start()
@@ -32,6 +39,9 @@ public class EventHandler : MonoBehaviour
     }
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.KeypadEnter))
+        {
+
+        }
     }
 }
