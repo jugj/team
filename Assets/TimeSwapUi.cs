@@ -37,7 +37,7 @@ public class TimeSwapUi : MonoBehaviour
         }
         if (Input.GetMouseButton(0) && isRotation)
         {
-            transform.rotation = Quaternion.Euler(0f, 0f, directionIndicator.rotation.eulerAngles.z - startMouseDownDirection);
+            transform.rotation = Quaternion.Euler(0f, 0f, directionIndicator.rotation.eulerAngles.z);
         }
         else
         {
