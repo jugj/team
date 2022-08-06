@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 0
+    path: Assets/Useless Data/Scenes/SampleScene.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/MarvinData/Scenes/TitleScreen.unity
+    guid: 45f79ad18ad75304894d76c3b567648d
+  - enabled: 1
+    path: Assets/MarvinData/Scenes/Lvl1.unity
+    guid: 85481b99d4847ae438fbe035631e070e
   m_configObjects: {}
