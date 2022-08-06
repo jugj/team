@@ -185,6 +185,7 @@ public class TimeSwapUi : MonoBehaviour
                     if (transform.localEulerAngles.z > 180f)
                     {
                         transform.localEulerAngles = new Vector3(0f, 0f, -90f);
+                        time = TimeCurrent.Past;
                     }
                 }
             }
