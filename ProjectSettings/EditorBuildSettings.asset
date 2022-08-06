@@ -4,16 +4,5 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes:
-<<<<<<< HEAD
-  - enabled: 0
-    path: Assets/Useless Data/Scenes/SampleScene.unity
-=======
-  - enabled: 1
-    path: Assets/Scenes/LvL1.unity
->>>>>>> 7b2aed6 (Änderungen von Simon um 20:34:04)
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
-    path: Assets/MarvinData/Scenes/TitleScreen.unity
-    guid: 45f79ad18ad75304894d76c3b567648d
+  m_Scenes: []
   m_configObjects: {}
