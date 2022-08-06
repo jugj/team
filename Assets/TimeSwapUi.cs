@@ -28,6 +28,9 @@ public class TimeSwapUi : MonoBehaviour
         presentChip.SetActive(presentChipHave);
         pastChip.SetActive(pastChipHave);
         futureChip.SetActive(futureChipHave);
+        presentChipUI.SetActive(presentChipHave);
+        pastChipUI.SetActive(pastChipHave);
+        futureChipUI.SetActive(futureChipHave);
         transform.Find("Sprite").gameObject.SetActive(isAktive);
         ClockUI.SetActive(isAktive);
 

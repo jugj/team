@@ -4,6 +4,7 @@ using UnityEngine;
 public enum ActionEvent
 {
     None,
+    FoundNothing,
     FindTimeSwaper,
     ChipPast,
     ChipPresent

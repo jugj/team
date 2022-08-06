@@ -16,7 +16,6 @@ public class Player : MonoBehaviour
         if(Input.GetKey(KeyCode.W) | Input.GetKey(KeyCode.UpArrow))
         {
             vertical += 1f;
-            GetComponent<AudioSource>().Play(0);
         }
         if (Input.GetKey(KeyCode.S) | Input.GetKey(KeyCode.DownArrow))
         {
@@ -29,6 +28,14 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.A) | Input.GetKey(KeyCode.LeftArrow))
         {
             horizontal -= 1f;
+        }
+        if (vertical == 0f && horizontal == 0f && GetComponent<AudioSource>().isPlaying)
+        {
+            GetComponent<AudioSource>().Stop();
+        }
+        if ((vertical != 0f || horizontal != 0f) && !GetComponent<AudioSource>().isPlaying)
+        {
+            GetComponent<AudioSource>().Play();
         }
         GetComponent<Animator>().SetFloat("Ver", vertical);
         GetComponent<Animator>().SetFloat("Hor", horizontal);

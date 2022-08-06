@@ -262,7 +262,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 90, y: 97}
+  m_AnchoredPosition: {x: 90, y: 113.97}
   m_SizeDelta: {x: 180, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &147997117
@@ -1014,7 +1014,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b88d455c75671e94e8ec918bd52f1ca4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  action: 0
+  action: 1
   playerIsTrigger: 0
 --- !u!4 &559291826
 Transform:
@@ -1431,6 +1431,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -1690,7 +1691,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 90, y: 277}
+  m_AnchoredPosition: {x: 90, y: 293.97}
   m_SizeDelta: {x: 180, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &714049068
@@ -1818,7 +1819,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b88d455c75671e94e8ec918bd52f1ca4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  action: 1
+  action: 2
   playerIsTrigger: 0
 --- !u!4 &728689512
 Transform:
@@ -2054,7 +2055,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -2364,7 +2365,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 90, y: 457}
+  m_AnchoredPosition: {x: 90, y: 473.97}
   m_SizeDelta: {x: 180, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &989107782
@@ -2831,7 +2832,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b88d455c75671e94e8ec918bd52f1ca4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  action: 2
+  action: 3
   playerIsTrigger: 0
 --- !u!1 &1392687226
 GameObject:
@@ -3510,7 +3511,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6105bedd439679a45ac59762096c2685, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  items: 0000000001000000020000000300000004000000
+  items: 000000000000000001000000020000000300000004000000
   currentEvent: 0
   TimeSwaper: {fileID: 347603437}
   searching: {fileID: 1588896382}
