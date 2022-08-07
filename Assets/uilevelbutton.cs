@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class uilevelbutton : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class uilevelbutton : MonoBehaviour
         {
             if (PlayerPrefs.GetInt($"LvL{levelId}Unlooked") == 1)
             {
-                GetComponent<SpriteRenderer>().sprite = aktive;
+                GetComponent<Image>().sprite = aktive;
             }
         }
     }
