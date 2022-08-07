@@ -66,7 +66,12 @@ public class EventHandler : MonoBehaviour
             month1 = "0";
             month2 = month11.ToString().ToCharArray()[0].ToString();
         }
-        PaperText.text = PaperText.text.Replace("{time}", day1 + day2 + "." + month1 + month2 + ".1865");
+        string year = ".1865";
+        if (levelUnlooked == 2)
+        {
+            year = ".1445";
+        }
+        PaperText.text = PaperText.text.Replace("{time}", day1 + day2 + "." + month1 + month2 + year);
     }
     public void Interact()
     {
@@ -119,38 +124,77 @@ public class EventHandler : MonoBehaviour
     }
     private void CheckLock()
     {
-        if (num1.text != day1)
+        if (levelUnlooked == 1)
         {
-            return;
+            if (num1.text != day1)
+            {
+                return;
+            }
+            if (num2.text != day2)
+            {
+                return;
+            }
+            if (num3.text != month1)
+            {
+                return;
+            }
+            if (num4.text != month2)
+            {
+                return;
+            }
+            if (num5.text != "1")
+            {
+                return;
+            }
+            if (num6.text != "4")
+            {
+                return;
+            }
+            if (num7.text != "2")
+            {
+                return;
+            }
+            if (num8.text == "5")
+            {
+                escaped = true;
+                sourceAudioDoor.Play();
+            }
         }
-        if (num2.text != day2)
+        else
         {
-            return;
-        }
-        if (num3.text != month1)
-        {
-            return;
-        }
-        if (num4.text != month2)
-        {
-            return;
-        }
-        if (num5.text != "1")
-        {
-            return;
-        }
-        if (num6.text != "8")
-        {
-            return;
-        }
-        if (num7.text != "2")
-        {
-            return;
-        }
-        if (num8.text == "5")
-        {
-            escaped = true;
-            sourceAudioDoor.Play();
+            if (num1.text != day1)
+            {
+                return;
+            }
+            if (num2.text != day2)
+            {
+                return;
+            }
+            if (num3.text != month1)
+            {
+                return;
+            }
+            if (num4.text != month2)
+            {
+                return;
+            }
+            if (num5.text != "1")
+            {
+                return;
+            }
+            if (num6.text != "7")
+            {
+                return;
+            }
+            if (num7.text != "4")
+            {
+                return;
+            }
+            if (num8.text == "5")
+            {
+                escaped = true;
+                sourceAudioDoor.Play();
+            }
         }
     }
     void Update()
@@ -168,7 +212,7 @@ public class EventHandler : MonoBehaviour
         {
             CheckLock();
         }
-        if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.KeypadEnter))
+        if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Backspace))
         {
             Interact();
         }
