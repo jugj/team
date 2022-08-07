@@ -7,11 +7,13 @@ public enum Item
     TimeSwaper,
     TimeChipPast,
     TimeChipPresent,
-    TimeChipFuture
+    TimeChipFuture,
+    OpenPaper
 }
 public class EventHandler : MonoBehaviour
 {
     public List<Item> items;
+    public List<GameObject> uiItem;
     public ActionEvent currentEvent;
 
     public GameObject TimeSwaper;
@@ -20,19 +22,26 @@ public class EventHandler : MonoBehaviour
     {
         if (currentEvent != ActionEvent.None)
         {
-            for (int i = 0; i < FindObjectsOfType<InterAction>().Length; i++)
+            if (items[(int)currentEvent] != Item.OpenPaper)
             {
-                if (FindObjectsOfType<InterAction>()[i].playerIsTrigger)
+                for (int i = 0; i < FindObjectsOfType<InterAction>().Length; i++)
                 {
-                    Destroy(FindObjectsOfType<InterAction>()[i]);
-                    break;
+                    if (FindObjectsOfType<InterAction>()[i].playerIsTrigger)
+                    {
+                        Destroy(FindObjectsOfType<InterAction>()[i]);
+                        break;
+                    }
                 }
+                if (items[(int)currentEvent] != Item.None)
+                {
+                    GetItem((int)items[(int)currentEvent]);
+                }
+                currentEvent = ActionEvent.None;
             }
-            if (items[(int)currentEvent] != Item.None)
+            else
             {
-                GetItem((int)items[(int)currentEvent]);
+                uiItem[(int)items[(int)currentEvent]].SetActive(true);
             }
-            currentEvent = ActionEvent.None;
         }
     }
     public void GetItem(int item)
