@@ -91,6 +91,27 @@ public class TimeSwapUi : MonoBehaviour
                 futureSprites.GetChild(i).GetComponent<SpriteRenderer>().maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
             }
         }
+        if (time == TimeCurrent.Past)
+        {
+            for (int i = 0; i < pastSprites.childCount; i++)
+            {
+                pastSprites.GetChild(i).GetComponent<SpriteRenderer>().maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
+            }
+        }
+        if (time == TimeCurrent.Present)
+        {
+            for (int i = 0; i < presentSprites.childCount; i++)
+            {
+                presentSprites.GetChild(i).GetComponent<SpriteRenderer>().maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
+            }
+        }
+        if (time == TimeCurrent.Future)
+        {
+            for (int i = 0; i < futureSprites.childCount; i++)
+            {
+                futureSprites.GetChild(i).GetComponent<SpriteRenderer>().maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
+            }
+        }
     }
     void Update()
     {
@@ -142,7 +163,7 @@ public class TimeSwapUi : MonoBehaviour
         }
         if (Input.GetMouseButton(0) && isRotation)
         {
-            transform.rotation = Quaternion.Euler(0f, 0f, /*startRotationDirection +*/ directionIndicator.localEulerAngles.z - startMouseDownDirection);
+            transform.rotation = Quaternion.Euler(0f, 0f, startRotationDirection + directionIndicator.localEulerAngles.z/* - startMouseDownDirection*/);
         }
         if (Input.GetMouseButtonUp(0) && isRotation)
         {
