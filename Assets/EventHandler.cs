@@ -161,7 +161,7 @@ public class EventHandler : MonoBehaviour
             if (timeTilEscape > 1.5f)
             {
                 PlayerPrefs.SetInt($"LvL{levelUnlooked}Unlooked", 1);
-                SceneManager.LoadScene(0);
+                SceneManager.LoadScene(4);
             }
         }
         else
