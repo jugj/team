@@ -6,7 +6,8 @@ public enum Item
     None,
     TimeSwaper,
     TimeChipPast,
-    TimeChipPresent
+    TimeChipPresent,
+    TimeChipFuture
 }
 public class EventHandler : MonoBehaviour
 {
