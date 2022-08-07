@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/MarvinData/Scenes/LvL2.unity
     guid: 3460067ca97b0e8468f6f4b79492b61c
+  - enabled: 1
+    path: Assets/MarvinData/Scenes/LvL3.unity
+    guid: 84fd5b6601d8f3b4a9fe35cdf80e69c5
+  - enabled: 1
+    path: Assets/MarvinData/Scenes/WinAnimation.unity
+    guid: 294a9f6c885a30b42995b746928cd113
   m_configObjects: {}
