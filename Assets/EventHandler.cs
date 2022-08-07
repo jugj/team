@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public enum Item
@@ -36,6 +37,11 @@ public class EventHandler : MonoBehaviour
     public string month1;
     public string month2;
     public Text PaperText;
+
+    private float timeTilEscape = 0f;
+    private bool escaped = false;
+    public int levelUnlooked;
+    public AudioSource sourceAudioDoor;
     private void Awake()
     {
         int day11 = Random.Range(1, 28);
@@ -113,41 +119,55 @@ public class EventHandler : MonoBehaviour
     }
     private void CheckLock()
     {
-        if (num1.text == day1)
+        if (num1.text != day1)
         {
-
+            return;
         }
-        if (num2.text == day2)
+        if (num2.text != day2)
         {
-
+            return;
         }
-        if (num3.text == month1)
+        if (num3.text != month1)
         {
-
+            return;
         }
-        if (num4.text == month2)
+        if (num4.text != month2)
         {
-
+            return;
         }
-        if (num5.text == "1")
+        if (num5.text != "1")
         {
-
+            return;
         }
-        if (num6.text == "8")
+        if (num6.text != "8")
         {
-
+            return;
         }
-        if (num7.text == "2")
+        if (num7.text != "2")
         {
-
+            return;
         }
         if (num8.text == "5")
         {
-
+            escaped = true;
+            sourceAudioDoor.Play();
         }
     }
     void Update()
     {
+        if (escaped)
+        {
+            timeTilEscape += Time.deltaTime;
+            if (timeTilEscape > 1.5f)
+            {
+                PlayerPrefs.SetInt($"LvL{levelUnlooked}Unlooked", 1);
+                SceneManager.LoadScene(0);
+            }
+        }
+        else
+        {
+            CheckLock();
+        }
         if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.KeypadEnter))
         {
             Interact();
