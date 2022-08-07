@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 public enum Item
 {
     None,
@@ -21,11 +23,50 @@ public class EventHandler : MonoBehaviour
 
     public GameObject TimeSwaper;
     public GameObject searching;
+    public InputField num1;
+    public InputField num2;
+    public InputField num3;
+    public InputField num4;
+    public InputField num5;
+    public InputField num6;
+    public InputField num7;
+    public InputField num8;
+    public string day1;
+    public string day2;
+    public string month1;
+    public string month2;
+    public Text PaperText;
+    private void Awake()
+    {
+        int day11 = Random.Range(1, 28);
+        int month11 = Random.Range(1, 12);
+        if (day11.ToString().Length > 1)
+        {
+            day1 = day11.ToString().ToCharArray()[0].ToString();
+            day2 = day11.ToString().ToCharArray()[1].ToString();
+        }
+        else
+        {
+            day1 = "0";
+            day2 = day11.ToString().ToCharArray()[0].ToString();
+        }
+        if (month11.ToString().Length > 1)
+        {
+            month1 = month11.ToString().ToCharArray()[0].ToString();
+            month2 = month11.ToString().ToCharArray()[1].ToString();
+        }
+        else
+        {
+            month1 = "0";
+            month2 = month11.ToString().ToCharArray()[0].ToString();
+        }
+        PaperText.text = PaperText.text.Replace("{time}", day1 + day2 + "." + month1 + month2 + ".1865");
+    }
     public void Interact()
     {
         if (currentEvent != ActionEvent.None)
         {
-            if (items[(int)currentEvent] != Item.OpenPaper)
+            if (items[(int)currentEvent] != Item.OpenPaper && items[(int)currentEvent] != Item.OpenLock && items[(int)currentEvent] != Item.OpenNotiz && items[(int)currentEvent] != Item.OpenEnigma)
             {
                 for (int i = 0; i < FindObjectsOfType<InterAction>().Length; i++)
                 {
@@ -69,6 +110,41 @@ public class EventHandler : MonoBehaviour
     void Start()
     {
         
+    }
+    private void CheckLock()
+    {
+        if (num1.text == day1)
+        {
+
+        }
+        if (num2.text == day2)
+        {
+
+        }
+        if (num3.text == month1)
+        {
+
+        }
+        if (num4.text == month2)
+        {
+
+        }
+        if (num5.text == "1")
+        {
+
+        }
+        if (num6.text == "8")
+        {
+
+        }
+        if (num7.text == "2")
+        {
+
+        }
+        if (num8.text == "5")
+        {
+
+        }
     }
     void Update()
     {
