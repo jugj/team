@@ -8,7 +8,10 @@ public enum Item
     TimeChipPast,
     TimeChipPresent,
     TimeChipFuture,
-    OpenPaper
+    OpenPaper,
+    OpenLock,
+    OpenNotiz,
+    OpenEnigma
 }
 public class EventHandler : MonoBehaviour
 {

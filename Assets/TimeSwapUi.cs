@@ -176,19 +176,28 @@ public class TimeSwapUi : MonoBehaviour
                         if (transform.localEulerAngles.z <= 45f || transform.localEulerAngles.z > 315f)
                         {
                             transform.localEulerAngles = new Vector3(0f, 0f, 0f);
-                            time = TimeCurrent.Present;
+                            if (!translateTime.gameObject.activeSelf)
+                            {
+                                time = TimeCurrent.Present;
+                            }
                             colorTriggerChanger.SetTrigger("ColorKlick");
                         }
                         if (transform.localEulerAngles.z > 45f && transform.localEulerAngles.z <= 180f)
                         {
                             transform.localEulerAngles = new Vector3(0f, 0f, 90f);
-                            time = TimeCurrent.Future;
+                            if (!translateTime.gameObject.activeSelf)
+                            {
+                                time = TimeCurrent.Future;
+                            }
                             colorTriggerChanger.SetTrigger("ColorKlick");
                         }
                         if (transform.localEulerAngles.z > 180f && transform.localEulerAngles.z <= 315f)
                         {
                             transform.localEulerAngles = new Vector3(0f, 0f, -90f);
-                            time = TimeCurrent.Past;
+                            if (!translateTime.gameObject.activeSelf)
+                            {
+                                time = TimeCurrent.Past;
+                            }
                             colorTriggerChanger.SetTrigger("ColorKlick");
                         }
                     }
@@ -197,21 +206,30 @@ public class TimeSwapUi : MonoBehaviour
                         if (transform.localEulerAngles.z > 315f || transform.localEulerAngles.z <= 95f)
                         {
                             transform.localEulerAngles = new Vector3(0f, 0f, 0f);
-                            time = TimeCurrent.Present;
+                            if (!translateTime.gameObject.activeSelf)
+                            {
+                                time = TimeCurrent.Present;
+                            }
                             colorTriggerChanger.SetTrigger("ColorKlick");
                         }
                         if (transform.localEulerAngles.z > 95f && transform.localEulerAngles.z <= 315f)
                         {
                             transform.localEulerAngles = new Vector3(0f, 0f, -90f);
-                            time = TimeCurrent.Past;
+                            if (!translateTime.gameObject.activeSelf)
+                            {
+                                time = TimeCurrent.Past;
+                            }
                             colorTriggerChanger.SetTrigger("ColorKlick");
                         }
                     }
                 }
                 else
                 {
+                    if (!translateTime.gameObject.activeSelf)
+                    {
+                        time = TimeCurrent.Past;
+                    }
                     transform.localEulerAngles = new Vector3(0f, 0f, -90f);
-                    time = TimeCurrent.Past;
                     colorTriggerChanger.SetTrigger("ColorKlick");
                 }
             }
