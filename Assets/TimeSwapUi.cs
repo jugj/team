@@ -46,7 +46,7 @@ public class TimeSwapUi : MonoBehaviour
     }
     public void TimeChange()
     {
-        if (timeCurrent == time && translateTime.gameObject.activeSelf)
+        if (timeCurrent == time || translateTime.gameObject.activeSelf)
             return;
         translateTime.gameObject.SetActive(true);
         translateTime.position = GameObject.Find("Player").transform.position;
