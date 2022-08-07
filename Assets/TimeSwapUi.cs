@@ -11,6 +11,7 @@ public enum TimeCurrent
 public class TimeSwapUi : MonoBehaviour
 {
     private float startMouseDownDirection;
+    private float startRotationDirection;
     public Transform directionIndicator;
     public bool pastChipHave;
     public bool presentChipHave;
@@ -22,6 +23,8 @@ public class TimeSwapUi : MonoBehaviour
     public GameObject pastChip;
     public GameObject futureChip;
     public GameObject ClockUI;
+
+    public Animator colorTriggerChanger;
 
     public TimeCurrent time;
     public TimeCurrent timeCurrent;
@@ -39,7 +42,7 @@ public class TimeSwapUi : MonoBehaviour
     public Transform futureSprites;
     void Start()
     {
-        
+
     }
     public void TimeChange()
     {
@@ -134,13 +137,12 @@ public class TimeSwapUi : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && Vector2.Distance(Camera.main.ScreenToWorldPoint(Input.mousePosition), transform.position) < 2.2f)
         {
             isRotation = true;
+            startRotationDirection = transform.localEulerAngles.z;
+            startRotationDirection = directionIndicator.localEulerAngles.z;
         }
         if (Input.GetMouseButton(0) && isRotation)
         {
-            transform.rotation = Quaternion.Euler(0f, 0f, directionIndicator.rotation.eulerAngles.z);
-        }
-        else
-        {
+            transform.rotation = Quaternion.Euler(0f, 0f, /*startRotationDirection +*/ directionIndicator.localEulerAngles.z - startMouseDownDirection);
         }
         if (Input.GetMouseButtonUp(0) && isRotation)
         {
@@ -150,43 +152,46 @@ public class TimeSwapUi : MonoBehaviour
                 {
                     if (futureChipHave)
                     {
-                        if ((transform.localEulerAngles.z > 0f && transform.localEulerAngles.z <= 45f) || transform.localEulerAngles.z > 315f)
+                        if (transform.localEulerAngles.z <= 45f || transform.localEulerAngles.z > 315f)
                         {
                             transform.localEulerAngles = new Vector3(0f, 0f, 0f);
                             time = TimeCurrent.Present;
+                            colorTriggerChanger.SetTrigger("ColorKlick");
                         }
-                        if (transform.localEulerAngles.z > 120f && transform.localEulerAngles.z <= 240f)
-                        {
-                            transform.localEulerAngles = new Vector3(0f, 0f, -90f);
-                            time = TimeCurrent.Past;
-                        }
-                        if (transform.localEulerAngles.z > 240f)
+                        if (transform.localEulerAngles.z > 45f && transform.localEulerAngles.z <= 180f)
                         {
                             transform.localEulerAngles = new Vector3(0f, 0f, 90f);
                             time = TimeCurrent.Future;
+                            colorTriggerChanger.SetTrigger("ColorKlick");
+                        }
+                        if (transform.localEulerAngles.z > 180f && transform.localEulerAngles.z <= 315f)
+                        {
+                            transform.localEulerAngles = new Vector3(0f, 0f, -90f);
+                            time = TimeCurrent.Past;
+                            colorTriggerChanger.SetTrigger("ColorKlick");
                         }
                     }
                     else
                     {
-                        if (transform.localEulerAngles.z <= 180f)
+                        if (transform.localEulerAngles.z > 315f || transform.localEulerAngles.z <= 95f)
                         {
                             transform.localEulerAngles = new Vector3(0f, 0f, 0f);
                             time = TimeCurrent.Present;
+                            colorTriggerChanger.SetTrigger("ColorKlick");
                         }
-                        if (transform.localEulerAngles.z > 180f)
+                        if (transform.localEulerAngles.z > 95f && transform.localEulerAngles.z <= 315f)
                         {
                             transform.localEulerAngles = new Vector3(0f, 0f, -90f);
                             time = TimeCurrent.Past;
+                            colorTriggerChanger.SetTrigger("ColorKlick");
                         }
                     }
                 }
                 else
                 {
-                    if (transform.localEulerAngles.z > 180f)
-                    {
-                        transform.localEulerAngles = new Vector3(0f, 0f, -90f);
-                        time = TimeCurrent.Past;
-                    }
+                    transform.localEulerAngles = new Vector3(0f, 0f, -90f);
+                    time = TimeCurrent.Past;
+                    colorTriggerChanger.SetTrigger("ColorKlick");
                 }
             }
             isRotation = false;
