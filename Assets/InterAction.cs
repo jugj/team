@@ -7,7 +7,12 @@ public enum ActionEvent
     FoundNothing,
     FindTimeSwaper,
     ChipPast,
-    ChipPresent
+    ChipPresent,
+    ChipFuture,
+    OpenPaper,
+    OpenLock,
+    OpenNotiz,
+    OpenEnigma
 }
 public class InterAction : MonoBehaviour
 {
